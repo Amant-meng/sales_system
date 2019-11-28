@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80015
 File Encoding         : 65001
 
-Date: 2019-11-27 15:39:57
+Date: 2019-11-28 14:53:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -280,11 +280,22 @@ CREATE TABLE `t_log` (
   PRIMARY KEY (`id`),
   KEY `FKbvn5yabu3vqwvtjoh32i9r4ip` (`user_id`),
   CONSTRAINT `FKbvn5yabu3vqwvtjoh32i9r4ip` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2919 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2930 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_log
 -- ----------------------------
+INSERT INTO `t_log` VALUES ('2919', '用户登录', '2019-11-28 06:01:44', '登录操作', '1');
+INSERT INTO `t_log` VALUES ('2920', '用户登录', '2019-11-28 06:07:05', '登录操作', '1');
+INSERT INTO `t_log` VALUES ('2921', '用户登录', '2019-11-28 06:45:24', '登录操作', '1');
+INSERT INTO `t_log` VALUES ('2922', '查询商品库存信息', '2019-11-28 06:45:25', '查询操作', '1');
+INSERT INTO `t_log` VALUES ('2923', '查询商品信息', '2019-11-28 06:49:14', '查询操作', '1');
+INSERT INTO `t_log` VALUES ('2924', '查询商品信息', '2019-11-28 06:49:14', '查询操作', '1');
+INSERT INTO `t_log` VALUES ('2925', '查询商品信息', '2019-11-28 06:49:19', '查询操作', '1');
+INSERT INTO `t_log` VALUES ('2926', '查询商品信息', '2019-11-28 06:49:19', '查询操作', '1');
+INSERT INTO `t_log` VALUES ('2927', '查询商品库存信息', '2019-11-28 06:49:25', '查询操作', '1');
+INSERT INTO `t_log` VALUES ('2928', '查询角色信息', '2019-11-28 06:50:17', '查询操作', '1');
+INSERT INTO `t_log` VALUES ('2929', '查询角色信息', '2019-11-28 06:50:17', '查询操作', '1');
 
 -- ----------------------------
 -- Table structure for t_menu
@@ -562,6 +573,79 @@ CREATE TABLE `t_role_menu` (
 -- ----------------------------
 -- Records of t_role_menu
 -- ----------------------------
+INSERT INTO `t_role_menu` VALUES ('2', '1', '1');
+INSERT INTO `t_role_menu` VALUES ('3', '10', '1');
+INSERT INTO `t_role_menu` VALUES ('4', '20', '1');
+INSERT INTO `t_role_menu` VALUES ('5', '30', '1');
+INSERT INTO `t_role_menu` VALUES ('6', '40', '1');
+INSERT INTO `t_role_menu` VALUES ('7', '50', '1');
+INSERT INTO `t_role_menu` VALUES ('8', '60', '1');
+INSERT INTO `t_role_menu` VALUES ('9', '1010', '1');
+INSERT INTO `t_role_menu` VALUES ('10', '1020', '1');
+INSERT INTO `t_role_menu` VALUES ('11', '1030', '1');
+INSERT INTO `t_role_menu` VALUES ('12', '1040', '1');
+INSERT INTO `t_role_menu` VALUES ('13', '1050', '1');
+INSERT INTO `t_role_menu` VALUES ('14', '2010', '1');
+INSERT INTO `t_role_menu` VALUES ('15', '2020', '1');
+INSERT INTO `t_role_menu` VALUES ('16', '2030', '1');
+INSERT INTO `t_role_menu` VALUES ('17', '2040', '1');
+INSERT INTO `t_role_menu` VALUES ('18', '2050', '1');
+INSERT INTO `t_role_menu` VALUES ('19', '3010', '1');
+INSERT INTO `t_role_menu` VALUES ('20', '3020', '1');
+INSERT INTO `t_role_menu` VALUES ('21', '3030', '1');
+INSERT INTO `t_role_menu` VALUES ('22', '3040', '1');
+INSERT INTO `t_role_menu` VALUES ('23', '3050', '1');
+INSERT INTO `t_role_menu` VALUES ('24', '4010', '1');
+INSERT INTO `t_role_menu` VALUES ('25', '4020', '1');
+INSERT INTO `t_role_menu` VALUES ('26', '4030', '1');
+INSERT INTO `t_role_menu` VALUES ('27', '4040', '1');
+INSERT INTO `t_role_menu` VALUES ('28', '4050', '1');
+INSERT INTO `t_role_menu` VALUES ('29', '4060', '1');
+INSERT INTO `t_role_menu` VALUES ('30', '5010', '1');
+INSERT INTO `t_role_menu` VALUES ('31', '5020', '1');
+INSERT INTO `t_role_menu` VALUES ('32', '5030', '1');
+INSERT INTO `t_role_menu` VALUES ('33', '5040', '1');
+INSERT INTO `t_role_menu` VALUES ('34', '6010', '1');
+INSERT INTO `t_role_menu` VALUES ('35', '6020', '1');
+INSERT INTO `t_role_menu` VALUES ('36', '10', '2');
+INSERT INTO `t_role_menu` VALUES ('37', '1010', '2');
+INSERT INTO `t_role_menu` VALUES ('38', '1020', '2');
+INSERT INTO `t_role_menu` VALUES ('39', '1030', '2');
+INSERT INTO `t_role_menu` VALUES ('40', '1040', '2');
+INSERT INTO `t_role_menu` VALUES ('41', '1050', '2');
+INSERT INTO `t_role_menu` VALUES ('42', '1', '2');
+INSERT INTO `t_role_menu` VALUES ('43', '6030', '1');
+INSERT INTO `t_role_menu` VALUES ('44', '6040', '1');
+INSERT INTO `t_role_menu` VALUES ('45', '1', '4');
+INSERT INTO `t_role_menu` VALUES ('46', '20', '4');
+INSERT INTO `t_role_menu` VALUES ('47', '2010', '4');
+INSERT INTO `t_role_menu` VALUES ('48', '1', '5');
+INSERT INTO `t_role_menu` VALUES ('49', '30', '5');
+INSERT INTO `t_role_menu` VALUES ('50', '3010', '5');
+INSERT INTO `t_role_menu` VALUES ('55', '1', '9');
+INSERT INTO `t_role_menu` VALUES ('56', '30', '9');
+INSERT INTO `t_role_menu` VALUES ('57', '3040', '9');
+INSERT INTO `t_role_menu` VALUES ('58', '3050', '9');
+INSERT INTO `t_role_menu` VALUES ('59', '50', '9');
+INSERT INTO `t_role_menu` VALUES ('60', '5010', '9');
+INSERT INTO `t_role_menu` VALUES ('61', '5020', '9');
+INSERT INTO `t_role_menu` VALUES ('62', '5030', '9');
+INSERT INTO `t_role_menu` VALUES ('63', '5040', '9');
+INSERT INTO `t_role_menu` VALUES ('64', '6050', '1');
+INSERT INTO `t_role_menu` VALUES ('65', '1', '7');
+INSERT INTO `t_role_menu` VALUES ('66', '10', '7');
+INSERT INTO `t_role_menu` VALUES ('67', '1010', '7');
+INSERT INTO `t_role_menu` VALUES ('68', '1020', '7');
+INSERT INTO `t_role_menu` VALUES ('69', '1030', '7');
+INSERT INTO `t_role_menu` VALUES ('70', '1040', '7');
+INSERT INTO `t_role_menu` VALUES ('71', '1050', '7');
+INSERT INTO `t_role_menu` VALUES ('72', '20', '7');
+INSERT INTO `t_role_menu` VALUES ('73', '2010', '7');
+INSERT INTO `t_role_menu` VALUES ('74', '2020', '7');
+INSERT INTO `t_role_menu` VALUES ('75', '2030', '7');
+INSERT INTO `t_role_menu` VALUES ('76', '40', '7');
+INSERT INTO `t_role_menu` VALUES ('77', '4010', '7');
+INSERT INTO `t_role_menu` VALUES ('78', '4020', '7');
 
 -- ----------------------------
 -- Table structure for t_sale_list
@@ -716,8 +800,8 @@ CREATE TABLE `t_user` (
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
-INSERT INTO `t_user` VALUES ('1', '管理员', '1', '王大陆', 'admin', null);
-INSERT INTO `t_user` VALUES ('2', '主管', '123', '王大锤', 'jack', '2');
+INSERT INTO `t_user` VALUES ('1', '管理员', '123456', 'Amant_meng', 'admin', null);
+INSERT INTO `t_user` VALUES ('2', '主管', '123', '杨小锰', 'jack', '2');
 INSERT INTO `t_user` VALUES ('3', '销售经理', '123', '玛丽', 'marry', '33');
 
 -- ----------------------------
