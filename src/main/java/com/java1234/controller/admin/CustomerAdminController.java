@@ -21,19 +21,19 @@ import com.java1234.service.LogService;
 
 /**
  * 后台管理客户Controller
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @RestController
 @RequestMapping("/admin/customer")
 public class CustomerAdminController {
-	
+
 	@Resource
 	private CustomerService customerService;
-	
+
 	@Resource
 	private LogService logService;
-	
+
 	/**
 	 * 分页查询客户信息
 	 * @param customer
@@ -53,7 +53,7 @@ public class CustomerAdminController {
 		logService.save(new Log(Log.SEARCH_ACTION,"查询客户信息")); // 写入日志
 		return resultMap;
 	}
-	
+
 	/**
 	 * 下拉框模糊查询
 	 * @param q
@@ -69,8 +69,8 @@ public class CustomerAdminController {
 		}
 		return customerService.findByName("%"+q+"%");
 	}
-	
-	
+
+
 	/**
 	 * 添加或者修改客户信息
 	 * @param customer
@@ -81,17 +81,17 @@ public class CustomerAdminController {
 	@RequiresPermissions(value = { "客户管理" })
 	public Map<String,Object> save(Customer customer)throws Exception{
 		if(customer.getId()!=null){ // 写入日志
-			logService.save(new Log(Log.UPDATE_ACTION,"更新客户信息"+customer)); 
+			logService.save(new Log(Log.UPDATE_ACTION,"更新客户信息"+customer));
 		}else{
-			logService.save(new Log(Log.ADD_ACTION,"添加客户信息"+customer)); 
+			logService.save(new Log(Log.ADD_ACTION,"添加客户信息"+customer));
 		}
 		Map<String, Object> resultMap = new HashMap<>();
-		customerService.save(customer);			
+		customerService.save(customer);
 		resultMap.put("success", true);
 		return resultMap;
 	}
-	
-	
+
+
 	/**
 	 * 删除客户信息
 	 * @param id
@@ -107,7 +107,7 @@ public class CustomerAdminController {
 		for(int i=0;i<idsStr.length;i++){
 			int id=Integer.parseInt(idsStr[i]);
 			logService.save(new Log(Log.DELETE_ACTION,"删除客户信息"+customerService.findById(id)));  // 写入日志
-			customerService.delete(id);							
+			customerService.delete(id);
 		}
 		resultMap.put("success", true);
 		return resultMap;

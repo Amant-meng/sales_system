@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 /**
  * 角色实体
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Entity
@@ -18,10 +18,10 @@ public class Role {
 	@Id
 	@GeneratedValue
 	private Integer id; // 编号
-	
+
 	@Column(length=50)
 	private String name; // 角色名称
-	
+
 	@Column(length=1000)
 	private String remarks; // 备注
 
@@ -55,7 +55,7 @@ public class Role {
 		return "[id=" + id + ", name=" + name + ", remarks=" + remarks + "]";
 	}
 
-	
-	
-	
+
+
+
 }

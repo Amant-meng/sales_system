@@ -25,20 +25,20 @@ import com.java1234.repository.UserRepository;
 
 /**
  * 自定义Realm
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public class MyRealm extends AuthorizingRealm{
 
 	@Resource
 	private UserRepository userRepository;
-	
+
 	@Resource
 	private RoleRepository roleRepository;
-	
+
 	@Resource
 	private MenuRepository menuRepository;
-	
+
 	/**
 	 * 授权
 	 */
@@ -71,7 +71,7 @@ public class MyRealm extends AuthorizingRealm{
 			AuthenticationInfo authcInfo=new SimpleAuthenticationInfo(user.getUserName(),user.getPassword(),"xxx");
 			return authcInfo;
 		}else{
-			return null;				
+			return null;
 		}
 	}
 

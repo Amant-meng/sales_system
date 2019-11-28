@@ -6,7 +6,7 @@ import com.java1234.entity.ReturnListGoods;
 
 /**
  * 退货单商品Service接口
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 public interface ReturnListGoodsService {
@@ -17,7 +17,7 @@ public interface ReturnListGoodsService {
 	 * @return
 	 */
 	public List<ReturnListGoods> listByReturnListId(Integer returnListId);
-	
+
 	/**
 	 * 根据条件查询退货单所有商品
 	 * @param returnListGoods

@@ -6,7 +6,7 @@ import com.java1234.entity.GoodsUnit;
 
 /**
  * 商品单位Repository接口
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public interface GoodsUnitRepository extends JpaRepository<GoodsUnit, Integer>{

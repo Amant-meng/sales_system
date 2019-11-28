@@ -25,7 +25,7 @@ import com.java1234.service.DamageListService;
 
 /**
  * 报损单Service实现类
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 @Service("damageListService")
@@ -34,16 +34,16 @@ public class DamageListServiceImpl implements DamageListService{
 
 	@Resource
 	private DamageListRepository damageListRepository;
-	
+
 	@Resource
 	private DamageListGoodsRepository damageListGoodsRepository;
-	
+
 	@Resource
 	private GoodsRepository goodsRepository;
-	
+
 	@Resource
 	private GoodsTypeRepository goodsTypeRepository;
-	
+
 	@Override
 	public String getTodayMaxDamageNumber() {
 		return damageListRepository.getTodayMaxDamageNumber();
@@ -56,7 +56,7 @@ public class DamageListServiceImpl implements DamageListService{
 			damageListGoods.setType(goodsTypeRepository.findOne(damageListGoods.getTypeId())); // 设置类别
 			damageListGoods.setDamageList(damageList); // 设置采购单
 			damageListGoodsRepository.save(damageListGoods);
-			// 修改商品库存 
+			// 修改商品库存
 			Goods goods=goodsRepository.findOne(damageListGoods.getGoodsId());
 			goods.setInventoryQuantity(goods.getInventoryQuantity()-damageListGoods.getNum());
 			goods.setState(2);

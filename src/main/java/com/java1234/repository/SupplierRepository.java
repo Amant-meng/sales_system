@@ -10,7 +10,7 @@ import com.java1234.entity.Supplier;
 
 /**
  * 供应商Repository接口
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public interface SupplierRepository extends JpaRepository<Supplier, Integer>,JpaSpecificationExecutor<Supplier>{
@@ -22,5 +22,5 @@ public interface SupplierRepository extends JpaRepository<Supplier, Integer>,Jpa
 	 */
 	@Query(value="select * from t_supplier where name like ?1",nativeQuery=true)
 	public List<Supplier> findByName(String name);
-	
+
 }

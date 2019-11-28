@@ -26,7 +26,7 @@ import com.java1234.util.StringUtil;
 
 /**
  * 退货单Service实现类
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 @Service("returnListService")
@@ -35,16 +35,16 @@ public class ReturnListServiceImpl implements ReturnListService{
 
 	@Resource
 	private ReturnListRepository returnListRepository;
-	
+
 	@Resource
 	private ReturnListGoodsRepository returnListGoodsRepository;
-	
+
 	@Resource
 	private GoodsRepository goodsRepository;
-	
+
 	@Resource
 	private GoodsTypeRepository goodsTypeRepository;
-	
+
 	@Override
 	public String getTodayMaxReturnNumber() {
 		return returnListRepository.getTodayMaxReturnNumber();
@@ -69,7 +69,7 @@ public class ReturnListServiceImpl implements ReturnListService{
 	@Override
 	public ReturnList findById(Integer id) {
 		return returnListRepository.findOne(id);
-		
+
 	}
 
 	@Override

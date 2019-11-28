@@ -9,7 +9,7 @@ import com.java1234.entity.RoleMenu;
 
 /**
  * 角色权限菜单Repository接口
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public interface RoleMenuRepository extends JpaRepository<RoleMenu, Integer>,JpaSpecificationExecutor<RoleMenu>{

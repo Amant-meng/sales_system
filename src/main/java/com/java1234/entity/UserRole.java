@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 /**
  * 用户角色关联实体
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Entity
@@ -19,11 +19,11 @@ public class UserRole {
 	@Id
 	@GeneratedValue
 	private Integer id; // 编号
-	
+
 	@ManyToOne
 	@JoinColumn(name="userId")
 	private User user; // 用户
-	
+
 	@ManyToOne
 	@JoinColumn(name="roleId")
 	private Role role; // 角色
@@ -56,7 +56,7 @@ public class UserRole {
 	public String toString() {
 		return "[id=" + id + ", user=" + user + ", role=" + role + "]";
 	}
-	
-	
-	
+
+
+
 }

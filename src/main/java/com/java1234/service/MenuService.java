@@ -6,7 +6,7 @@ import com.java1234.entity.Menu;
 
 /**
  * 权限菜单Service实现类
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public interface MenuService {
@@ -17,14 +17,14 @@ public interface MenuService {
 	 * @return
 	 */
 	public Menu findById(Integer id);
-	
+
 	/**
 	 * 根据id获取权限菜单集合
 	 * @param userId
 	 * @return
 	 */
 	public List<Menu> findByRoleId(int roleId);
-	
+
 	/**
 	 * 根据父节点以及角色id集合查询子节点
 	 * @param parentId
@@ -32,7 +32,7 @@ public interface MenuService {
 	 * @return
 	 */
 	public List<Menu> findByParentIdAndRoleId(int parentId,int roleId);
-	
+
 	/**
 	 * 根据父节点查找所有子节点
 	 * @param parentId

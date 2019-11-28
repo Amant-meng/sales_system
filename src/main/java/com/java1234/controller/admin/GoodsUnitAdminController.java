@@ -18,7 +18,7 @@ import com.java1234.service.LogService;
 
 /**
  * 后台管理商品单位Controller
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @RestController
@@ -27,16 +27,16 @@ public class GoodsUnitAdminController {
 
 	@Resource
 	private GoodsUnitService goodsUnitService;
-	
+
 	@Resource
 	private LogService logService;
-	
+
 	@RequestMapping("/comboList")
 	@RequiresPermissions(value = { "商品管理" })
 	public List<GoodsUnit> comboList()throws Exception{
 		return goodsUnitService.listAll();
 	}
-	
+
 	/**
 	 * 查询所有商品单位
 	 * @return
@@ -51,7 +51,7 @@ public class GoodsUnitAdminController {
 		logService.save(new Log(Log.SEARCH_ACTION,"查询商品单位信息")); // 写入日志
 		return resultMap;
 	}
-	
+
 	/**
 	 * 添加商品单位
 	 * @param goodsUnit
@@ -62,12 +62,12 @@ public class GoodsUnitAdminController {
 	@RequiresPermissions(value = { "商品管理","进货入库"},logical=Logical.OR)
 	public Map<String,Object> save(GoodsUnit goodsUnit)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
-		logService.save(new Log(Log.ADD_ACTION,"添加商品单位信息"+goodsUnit)); 
+		logService.save(new Log(Log.ADD_ACTION,"添加商品单位信息"+goodsUnit));
 		goodsUnitService.save(goodsUnit);
 		resultMap.put("success", true);
 		return resultMap;
 	}
-	
+
 	/**
 	 * 删除商品单位信息
 	 * @param id
@@ -80,9 +80,9 @@ public class GoodsUnitAdminController {
 	public Map<String,Object> delete(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		logService.save(new Log(Log.DELETE_ACTION,"删除商品单位信息"+goodsUnitService.findById(id)));  // 写入日志
-		goodsUnitService.delete(id);				
+		goodsUnitService.delete(id);
 		resultMap.put("success", true);
 		return resultMap;
 	}
-	
+
 }

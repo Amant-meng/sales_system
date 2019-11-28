@@ -25,18 +25,18 @@ import com.java1234.util.StringUtil;
 
 /**
  * 系统日志Service实现类
- * @author java1234 小锋 老师
- * 
+ * @author Meng.Yang
+ *
  */
 @Service("logService")
 public class LogServiceImpl implements LogService{
 
 	@Resource
 	private LogRepository logRepository;
-	
+
 	@Resource
 	private UserRepository userRepository;
-	
+
 	@Override
 	public void save(Log log) {
 		log.setTime(new Date()); // 设置操作日期

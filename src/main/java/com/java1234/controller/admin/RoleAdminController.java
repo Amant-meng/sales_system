@@ -29,7 +29,7 @@ import com.java1234.util.StringUtil;
 
 /**
  * 后台管理角色Controller
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @RestController
@@ -38,19 +38,19 @@ public class RoleAdminController {
 
 	@Resource
 	private RoleService roleService;
-	
+
 	@Resource
 	private UserRoleService userRoleService;
-	
+
 	@Resource
 	private MenuService menuService;
-	
+
 	@Resource
 	private RoleMenuService roleMenuService;
-	
+
 	@Resource
 	private LogService logService;
-	
+
 	/**
 	 * 查询所有角色
 	 * @return
@@ -64,7 +64,7 @@ public class RoleAdminController {
 		logService.save(new Log(Log.SEARCH_ACTION,"查询所有角色信息")); // 写入日志
 		return resultMap;
 	}
-	
+
 	/**
 	 * 分页查询角色信息
 	 * @param user
@@ -84,7 +84,7 @@ public class RoleAdminController {
 		logService.save(new Log(Log.SEARCH_ACTION,"查询角色信息")); // 写入日志
 		return resultMap;
 	}
-	
+
 	/**
 	 * 添加或者修改角色信息
 	 * @param role
@@ -95,17 +95,17 @@ public class RoleAdminController {
 	@RequiresPermissions(value = { "角色管理" })
 	public Map<String,Object> save(Role role)throws Exception{
 		if(role.getId()!=null){ // 写入日志
-			logService.save(new Log(Log.UPDATE_ACTION,"更新角色信息"+role)); 
+			logService.save(new Log(Log.UPDATE_ACTION,"更新角色信息"+role));
 		}else{
-			logService.save(new Log(Log.ADD_ACTION,"添加角色信息"+role)); 
+			logService.save(new Log(Log.ADD_ACTION,"添加角色信息"+role));
 		}
 		Map<String, Object> resultMap = new HashMap<>();
 		roleService.save(role);
 		resultMap.put("success", true);
 		return resultMap;
 	}
-	
-	
+
+
 	/**
 	 * 删除角色信息
 	 * @param id
@@ -119,11 +119,11 @@ public class RoleAdminController {
 		logService.save(new Log(Log.DELETE_ACTION,"删除角色信息"+roleService.findById(id)));  // 写入日志
 		Map<String, Object> resultMap = new HashMap<>();
 		userRoleService.deleteByRoleId(id); // 删除用户角色关联信息
-		roleService.delete(id);				
+		roleService.delete(id);
 		resultMap.put("success", true);
 		return resultMap;
 	}
-	
+
 	/**
 	 * 根据父节点获取所有复选框权限菜单树
 	 * @param parentId
@@ -141,7 +141,7 @@ public class RoleAdminController {
 		}
 		return getAllCheckedMenuByParentId(parentId,menuIdList).toString();
 	}
-	
+
 	/**
 	 * 根据父节点ID和权限菜单ID集合获取复选框菜单节点
 	 * @param parentId
@@ -160,7 +160,7 @@ public class RoleAdminController {
 		}
 		return jsonArray;
 	}
-	
+
 	/**
 	 * 根据父节点ID和权限菜单ID集合获取复选框菜单节点
 	 * @param parentId
@@ -188,7 +188,7 @@ public class RoleAdminController {
     	}
 		return jsonArray;
 	}
-	
+
 	/**
 	 * 保存角色权限设置
 	 * @param menuIds

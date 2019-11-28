@@ -26,7 +26,7 @@ import com.java1234.util.StringUtil;
 
 /**
  * 销售单Service实现类
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 @Service("saleListService")
@@ -35,16 +35,16 @@ public class SaleListServiceImpl implements SaleListService{
 
 	@Resource
 	private SaleListRepository saleListRepository;
-	
+
 	@Resource
 	private SaleListGoodsRepository saleListGoodsRepository;
-	
+
 	@Resource
 	private GoodsRepository goodsRepository;
-	
+
 	@Resource
 	private GoodsTypeRepository goodsTypeRepository;
-	
+
 	@Override
 	public String getTodayMaxSaleNumber() {
 		return saleListRepository.getTodayMaxSaleNumber();

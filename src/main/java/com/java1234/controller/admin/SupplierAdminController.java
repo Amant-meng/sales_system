@@ -21,19 +21,19 @@ import com.java1234.service.SupplierService;
 
 /**
  * 后台管理供应商Controller
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @RestController
 @RequestMapping("/admin/supplier")
 public class SupplierAdminController {
-	
+
 	@Resource
 	private SupplierService supplierService;
-	
+
 	@Resource
 	private LogService logService;
-	
+
 	/**
 	 * 分页查询供应商信息
 	 * @param supplier
@@ -53,7 +53,7 @@ public class SupplierAdminController {
 		logService.save(new Log(Log.SEARCH_ACTION,"查询供应商信息")); // 写入日志
 		return resultMap;
 	}
-	
+
 	/**
 	 * 下拉框模糊查询
 	 * @param q
@@ -69,9 +69,9 @@ public class SupplierAdminController {
 		}
 		return supplierService.findByName("%"+q+"%");
 	}
-	
-	
-	
+
+
+
 	/**
 	 * 添加或者修改供应商信息
 	 * @param supplier
@@ -82,17 +82,17 @@ public class SupplierAdminController {
 	@RequiresPermissions(value = { "供应商管理" })
 	public Map<String,Object> save(Supplier supplier)throws Exception{
 		if(supplier.getId()!=null){ // 写入日志
-			logService.save(new Log(Log.UPDATE_ACTION,"更新供应商信息"+supplier)); 
+			logService.save(new Log(Log.UPDATE_ACTION,"更新供应商信息"+supplier));
 		}else{
-			logService.save(new Log(Log.ADD_ACTION,"添加供应商信息"+supplier)); 
+			logService.save(new Log(Log.ADD_ACTION,"添加供应商信息"+supplier));
 		}
 		Map<String, Object> resultMap = new HashMap<>();
-		supplierService.save(supplier);			
+		supplierService.save(supplier);
 		resultMap.put("success", true);
 		return resultMap;
 	}
-	
-	
+
+
 	/**
 	 * 删除供应商信息
 	 * @param id
@@ -108,7 +108,7 @@ public class SupplierAdminController {
 		for(int i=0;i<idsStr.length;i++){
 			int id=Integer.parseInt(idsStr[i]);
 			logService.save(new Log(Log.DELETE_ACTION,"删除供应商信息"+supplierService.findById(id)));  // 写入日志
-			supplierService.delete(id);							
+			supplierService.delete(id);
 		}
 		resultMap.put("success", true);
 		return resultMap;

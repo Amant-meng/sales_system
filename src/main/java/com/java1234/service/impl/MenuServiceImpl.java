@@ -12,7 +12,7 @@ import com.java1234.service.MenuService;
 
 /**
  * 权限菜单Service实现类
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Service("menuService")
@@ -20,7 +20,7 @@ public class MenuServiceImpl implements MenuService{
 
 	@Resource
 	private MenuRepository menuRepository;
-	
+
 	@Override
 	public List<Menu> findByRoleId(int roleId) {
 		return menuRepository.findByRoleId(roleId);

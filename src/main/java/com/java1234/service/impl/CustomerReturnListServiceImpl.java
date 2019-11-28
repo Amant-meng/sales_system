@@ -26,7 +26,7 @@ import com.java1234.util.StringUtil;
 
 /**
  * 销售单Service实现类
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 @Service("customerReturnListService")
@@ -35,16 +35,16 @@ public class CustomerReturnListServiceImpl implements CustomerReturnListService{
 
 	@Resource
 	private CustomerReturnListRepository customerReturnListRepository;
-	
+
 	@Resource
 	private CustomerReturnListGoodsRepository customerReturnListGoodsRepository;
-	
+
 	@Resource
 	private GoodsRepository goodsRepository;
-	
+
 	@Resource
 	private GoodsTypeRepository goodsTypeRepository;
-	
+
 	@Override
 	public String getTodayMaxCustomerReturnNumber() {
 		return customerReturnListRepository.getTodayMaxCustomerReturnNumber();

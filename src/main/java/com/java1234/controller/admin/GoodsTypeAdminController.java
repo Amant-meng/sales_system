@@ -21,7 +21,7 @@ import com.java1234.service.LogService;
 
 /**
  * 后台管理商品类别Controller
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @RestController
@@ -30,10 +30,10 @@ public class GoodsTypeAdminController {
 
 	@Resource
 	private GoodsTypeService goodsTypeService;
-	
+
 	@Resource
 	private LogService logService;
-	
+
 	/**
 	 * 加载商品类别树菜单
 	 * @return
@@ -45,7 +45,7 @@ public class GoodsTypeAdminController {
     	logService.save(new Log(Log.SEARCH_ACTION,"查询商品类别信息")); // 写入日志
 		return getAllByParentId(-1).toString();
 	}
-	
+
 	/**
 	 * 添加商品类别
 	 * @param name
@@ -56,25 +56,25 @@ public class GoodsTypeAdminController {
 	@RequestMapping("/save")
 	@RequiresPermissions(value = { "商品管理","进货入库"},logical=Logical.OR)
 	public Map<String,Object> save(String name,Integer parentId)throws Exception{
-		
+
 		Map<String, Object> resultMap = new HashMap<>();
 		GoodsType goodsType=new GoodsType();
 		goodsType.setName(name);
 		goodsType.setpId(parentId);
 		goodsType.setIcon("icon-folder");
 		goodsType.setState(0);
-		logService.save(new Log(Log.ADD_ACTION,"添加商品类别信息"+goodsType)); 
+		logService.save(new Log(Log.ADD_ACTION,"添加商品类别信息"+goodsType));
 		goodsTypeService.save(goodsType); // 保存商品类别
-		
+
 		GoodsType parentGoodsType=goodsTypeService.findById(parentId); // 查找父节点
 		parentGoodsType.setState(1); // 修改state 1 根节点
 		goodsTypeService.save(parentGoodsType); // 保存父节点商品类别
-		
-		
-		resultMap.put("success", true);	
+
+
+		resultMap.put("success", true);
 		return resultMap;
 	}
-	
+
 	/**
 	 * 商品类别删除
 	 * @param id
@@ -85,7 +85,7 @@ public class GoodsTypeAdminController {
 	@RequiresPermissions(value = { "商品管理","进货入库"},logical=Logical.OR)
 	public Map<String,Object> delete(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
-		GoodsType goodsType=goodsTypeService.findById(id); 
+		GoodsType goodsType=goodsTypeService.findById(id);
 		if(goodsTypeService.findByParentId(goodsType.getpId()).size()==1){ // 假如父节点下只有当前这个子节点，修改下 父节点的state状态
 			GoodsType parentGoodsType=goodsTypeService.findById(goodsType.getpId());
 			parentGoodsType.setState(0); // 修改state 0  叶子节点
@@ -93,10 +93,10 @@ public class GoodsTypeAdminController {
 		}
 		logService.save(new Log(Log.DELETE_ACTION,"删除商品类别信息"+goodsType));  // 写入日志
 		goodsTypeService.delete(id); // 删除
-		resultMap.put("success", true);	
+		resultMap.put("success", true);
 		return resultMap;
 	}
-	
+
 	/**
 	 * 根据父节点递归获取所有商品类别信息
 	 * @param parentId
@@ -114,7 +114,7 @@ public class GoodsTypeAdminController {
 		}
 		return jsonArray;
 	}
-	
+
 	/**
 	 * 根据父节点查询子节点
 	 * @param parentId
@@ -140,6 +140,6 @@ public class GoodsTypeAdminController {
 		}
 		return jsonArray;
 	}
-	
-	
+
+
 }

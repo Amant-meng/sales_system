@@ -12,7 +12,7 @@ import com.java1234.entity.Goods;
 
 /**
  * 商品Repository接口
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public interface GoodsRepository extends JpaRepository<Goods, Integer>,JpaSpecificationExecutor<Goods>{
@@ -23,12 +23,12 @@ public interface GoodsRepository extends JpaRepository<Goods, Integer>,JpaSpecif
 	 */
 	@Query(value="select max(code) from t_goods",nativeQuery=true)
 	public String getMaxGoodsCode();
-	
+
 	/**
 	 * 查询库存报警商品 库存小于库存下限的商品
 	 * @return
 	 */
 	@Query(value="SELECT * FROM t_goods WHERE inventory_quantity<min_num",nativeQuery=true)
 	public List<Goods> listAlarm();
-	
+
 }

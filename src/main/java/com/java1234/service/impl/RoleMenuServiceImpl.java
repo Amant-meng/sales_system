@@ -11,7 +11,7 @@ import com.java1234.service.RoleMenuService;
 
 /**
  * 角色权限菜单关联Service实现类
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Service("roleMenuService")
@@ -30,6 +30,6 @@ public class RoleMenuServiceImpl implements RoleMenuService{
 	public void save(RoleMenu roleMenu) {
 		roleMenuRepository.save(roleMenu);
 	}
-	
-	
+
+
 }

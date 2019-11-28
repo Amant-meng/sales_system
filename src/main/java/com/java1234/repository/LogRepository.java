@@ -7,10 +7,10 @@ import com.java1234.entity.Log;
 
 /**
  * 系统日志Repository接口
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public interface LogRepository extends JpaRepository<Log, Integer>,JpaSpecificationExecutor<Log>{
 
-	
+
 }

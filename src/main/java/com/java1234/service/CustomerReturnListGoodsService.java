@@ -6,7 +6,7 @@ import com.java1234.entity.CustomerReturnListGoods;
 
 /**
  * 客户退货单商品Service接口
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 public interface CustomerReturnListGoodsService {
@@ -24,13 +24,13 @@ public interface CustomerReturnListGoodsService {
 	 * @return
 	 */
 	public Integer getTotalByGoodsId(Integer goodsId);
-	
+
 	/**
 	 * 根据条件查询客户退货单商品
 	 * @param customerReturnListGoods
 	 * @return
 	 */
 	public List<CustomerReturnListGoods> list(CustomerReturnListGoods customerReturnListGoods);
-	
-	
+
+
 }

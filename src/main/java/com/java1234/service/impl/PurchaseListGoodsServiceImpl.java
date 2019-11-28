@@ -18,7 +18,7 @@ import com.java1234.util.StringUtil;
 
 /**
  * 进货单商品Service实现类
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 @Service("purchaseListGoodsService")
@@ -35,7 +35,7 @@ public class PurchaseListGoodsServiceImpl implements PurchaseListGoodsService{
 	@Override
 	public List<PurchaseListGoods> list(PurchaseListGoods purchaseListGoods) {
 		return purchaseListGoodsRepository.findAll(new Specification<PurchaseListGoods>() {
-			
+
 			@Override
 			public Predicate toPredicate(Root<PurchaseListGoods> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				Predicate predicate=cb.conjunction();
@@ -55,6 +55,6 @@ public class PurchaseListGoodsServiceImpl implements PurchaseListGoodsService{
 		});
 	}
 
-	
+
 
 }

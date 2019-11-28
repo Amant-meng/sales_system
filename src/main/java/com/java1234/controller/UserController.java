@@ -32,7 +32,7 @@ import com.java1234.util.StringUtil;
 
 /**
  * 当前登录用户控制器
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Controller
@@ -41,16 +41,16 @@ public class UserController {
 
 	@Resource
 	private RoleService roleService;
-	
+
 	@Resource
 	private UserService userService;
-	
+
 	@Resource
 	private MenuService menuService;
-	
+
 	@Resource
 	private LogService logService;
-	
+
 	/**
      * 用户登录请求
      * @param user
@@ -95,7 +95,7 @@ public class UserController {
 			return map;
 		}
     }
-    
+
     /**
      * 保存角色信息
      * @param roleId
@@ -112,7 +112,7 @@ public class UserController {
     	map.put("success", true);
     	return map;
     }
-    
+
     /**
      * 加载当前用户信息
      * @param session
@@ -126,7 +126,7 @@ public class UserController {
     	Role currentRole=(Role) session.getAttribute("currentRole");
     	return "欢迎您："+currentUser.getTrueName()+"&nbsp;[&nbsp;"+currentRole.getName()+"&nbsp;]";
     }
-    
+
     /**
      * 加载权限菜单
      * @param session
@@ -139,7 +139,7 @@ public class UserController {
     	Role currentRole=(Role) session.getAttribute("currentRole");
     	return getAllMenuByParentId(parentId,currentRole.getId()).toString();
     }
-    
+
     /**
      * 获取所有菜单信息
      * @param parentId
@@ -158,7 +158,7 @@ public class UserController {
     	}
     	return jsonArray;
     }
-    
+
     /**
      * 根据父节点和用户角色id查询菜单
      * @param parentId

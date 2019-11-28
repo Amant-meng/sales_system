@@ -12,7 +12,7 @@ import com.java1234.service.GoodsTypeService;
 
 /**
  * 商品类别Service实现类
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Service("goodsTypeService")
@@ -20,7 +20,7 @@ public class GoodsTypeServiceImpl implements GoodsTypeService{
 
 	@Resource
 	private GoodsTypeRepository goodsTypeRepository;
-	
+
 	@Override
 	public void save(GoodsType goodsType) {
 		goodsTypeRepository.save(goodsType);

@@ -12,7 +12,7 @@ import com.java1234.service.UserRoleService;
 
 /**
  * 用户角色关联Service实现类
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Service("userRoleService")
@@ -21,7 +21,7 @@ public class UserRoleServiceImpl implements UserRoleService{
 
 	@Resource
 	private UserRoleRepository userRoleRepository;
-	
+
 	@Override
 	public void save(UserRole userRole) {
 		userRoleRepository.save(userRole);
@@ -49,6 +49,6 @@ public class UserRoleServiceImpl implements UserRoleService{
 		userRoleRepository.deleteByRoleId(userId);
 	}
 
-	
+
 
 }

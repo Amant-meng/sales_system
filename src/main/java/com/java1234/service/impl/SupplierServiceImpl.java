@@ -22,7 +22,7 @@ import com.java1234.util.StringUtil;
 
 /**
  * 供应商Service实现类
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Service("supplierService")
@@ -30,7 +30,7 @@ public class SupplierServiceImpl implements SupplierService{
 
 	@Resource
 	private SupplierRepository supplierRepository;
-	
+
 
 	@Override
 	public void save(Supplier supplier) {
@@ -41,14 +41,14 @@ public class SupplierServiceImpl implements SupplierService{
 	public List<Supplier> list(Supplier supplier, Integer page, Integer pageSize, Direction direction, String... properties) {
 		Pageable pageable=new PageRequest(page-1, pageSize, direction,properties);
 		Page<Supplier> pageSupplier=supplierRepository.findAll(new Specification<Supplier>() {
-			
+
 			@Override
 			public Predicate toPredicate(Root<Supplier> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				Predicate predicate=cb.conjunction();
 				if(supplier!=null){
 					if(StringUtil.isNotEmpty(supplier.getName())){
 						predicate.getExpressions().add(cb.like(root.get("name"), "%"+supplier.getName().trim()+"%"));
-					}	
+					}
 				}
 				return predicate;
 			}
@@ -66,7 +66,7 @@ public class SupplierServiceImpl implements SupplierService{
 				if(supplier!=null){
 					if(StringUtil.isNotEmpty(supplier.getName())){
 						predicate.getExpressions().add(cb.like(root.get("name"), "%"+supplier.getName().trim()+"%"));
-					}	
+					}
 				}
 				return predicate;
 			}

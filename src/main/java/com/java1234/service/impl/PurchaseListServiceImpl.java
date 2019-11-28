@@ -27,7 +27,7 @@ import com.java1234.util.StringUtil;
 
 /**
  * 进货单Service实现类
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 @Service("purchaseListService")
@@ -36,16 +36,16 @@ public class PurchaseListServiceImpl implements PurchaseListService{
 
 	@Resource
 	private PurchaseListRepository purchaseListRepository;
-	
+
 	@Resource
 	private PurchaseListGoodsRepository purchaseListGoodsRepository;
-	
+
 	@Resource
 	private GoodsRepository goodsRepository;
-	
+
 	@Resource
 	private GoodsTypeRepository goodsTypeRepository;
-	
+
 	@Override
 	public String getTodayMaxPurchaseNumber() {
 		return purchaseListRepository.getTodayMaxPurchaseNumber();

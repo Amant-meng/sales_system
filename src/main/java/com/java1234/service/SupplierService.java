@@ -8,7 +8,7 @@ import com.java1234.entity.Supplier;
 
 /**
  * 供应商Service接口
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public interface SupplierService {
@@ -19,20 +19,20 @@ public interface SupplierService {
 	 * @return
 	 */
 	public List<Supplier> findByName(String name);
-	
+
 	/**
 	 * 根据id查询实体
 	 * @param id
 	 * @return
 	 */
 	public Supplier findById(Integer id);
-	
+
 	/**
 	 * 修改或者修改供应商信息
 	 * @param supplier
 	 */
 	public void save(Supplier supplier);
-	
+
 	/**
 	 * 根据条件分页查询供应商信息
 	 * @param supplier
@@ -43,14 +43,14 @@ public interface SupplierService {
 	 * @return
 	 */
 	public List<Supplier> list(Supplier supplier,Integer page,Integer pageSize,Direction direction,String... properties);
-	
+
 	/**
 	 * 获取总记录数
 	 * @param supplier
 	 * @return
 	 */
 	public Long getCount(Supplier supplier);
-	
+
 	/**
 	 * 根据id删除供应商
 	 * @param id

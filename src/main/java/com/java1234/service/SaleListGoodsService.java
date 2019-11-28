@@ -6,7 +6,7 @@ import com.java1234.entity.SaleListGoods;
 
 /**
  * 销售单商品Service接口
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 public interface SaleListGoodsService {
@@ -17,14 +17,14 @@ public interface SaleListGoodsService {
 	 * @return
 	 */
 	public List<SaleListGoods> listBySaleListId(Integer saleListId);
-	
+
 	/**
 	 * 统计某个商品的销售总量
 	 * @param goodsId
 	 * @return
 	 */
 	public Integer getTotalByGoodsId(Integer goodsId);
-	
+
 	/**
 	 * 根据条件查询销售单所有商品
 	 * @param saleListGoods

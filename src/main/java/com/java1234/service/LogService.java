@@ -8,19 +8,19 @@ import com.java1234.entity.Log;
 
 /**
  * 系统日志Service接口
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public interface LogService {
 
 
-	
+
 	/**
 	 * 修改或者修改日志信息
 	 * @param log
 	 */
 	public void save(Log log);
-	
+
 	/**
 	 * 根据条件分页查询日志信息
 	 * @param log
@@ -31,7 +31,7 @@ public interface LogService {
 	 * @return
 	 */
 	public List<Log> list(Log log,Integer page,Integer pageSize,Direction direction,String... properties);
-	
+
 	/**
 	 * 获取总记录数
 	 * @param user

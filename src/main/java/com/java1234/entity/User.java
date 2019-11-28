@@ -11,7 +11,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * 用户实体
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Entity
@@ -21,24 +21,24 @@ public class User {
 	@Id
 	@GeneratedValue
 	private Integer id; // 编号
-	
+
 	@NotEmpty(message="请输入用户名！")
 	@Column(length=50)
 	private String userName; // 用户名
-	
+
 	@NotEmpty(message="请输入密码！")
 	@Column(length=50)
 	private String password; // 密码
-	
+
 	@Column(length=50)
 	private String trueName; // 真实姓名
-	
+
 	@Column(length=1000)
 	private String remarks; // 备注
-	
+
 	@Transient
-	private String roles; 
-	
+	private String roles;
+
 
 	public Integer getId() {
 		return id;
@@ -95,6 +95,6 @@ public class User {
 				+ ", remarks=" + remarks + ", roles=" + roles + "]";
 	}
 
-	
-	
+
+
 }

@@ -11,7 +11,7 @@ import javax.persistence.Transient;
 
 /**
  * 客户退货单商品实体
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Entity
@@ -21,37 +21,37 @@ public class CustomerReturnListGoods {
 	@Id
 	@GeneratedValue
 	private Integer id; // 编号
-	
+
 	@ManyToOne
 	@JoinColumn(name="customerReturnListId")
 	private CustomerReturnList customerReturnList; // 客户退货单
 
 	@Column(length=50)
 	private String code; // 商品编码
-	
-	
+
+
 	@Column(length=50)
 	private String name; // 商品名称
-	
+
 	@Column(length=50)
 	private String model; // 商品型号
-	
+
 	@ManyToOne
 	@JoinColumn(name="typeId")
 	private GoodsType type; // 商品类别
-	
+
 	@Transient
-	private Integer typeId; // 类别id 
-	
+	private Integer typeId; // 类别id
+
 	private Integer goodsId; // 商品id
-	
+
 	@Column(length=10)
 	private String unit; // 商品单位
-	
+
 	private float price; // 单价
-	
+
 	private int num; // 数量
-	
+
 	private float total; // 总价
 
 	@Transient
@@ -72,7 +72,7 @@ public class CustomerReturnListGoods {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
+
 
 	public String getName() {
 		return name;
@@ -97,8 +97,8 @@ public class CustomerReturnListGoods {
 	public void setType(GoodsType type) {
 		this.type = type;
 	}
-	
-	
+
+
 	public Integer getTypeId() {
 		return typeId;
 	}
@@ -138,8 +138,8 @@ public class CustomerReturnListGoods {
 	public void setTotal(float total) {
 		this.total = total;
 	}
-	
-	
+
+
 	public CustomerReturnList getCustomerReturnList() {
 		return customerReturnList;
 	}
@@ -147,8 +147,8 @@ public class CustomerReturnListGoods {
 	public void setCustomerReturnList(CustomerReturnList customerReturnList) {
 		this.customerReturnList = customerReturnList;
 	}
-	
-	
+
+
 
 	public Integer getGoodsId() {
 		return goodsId;
@@ -157,8 +157,8 @@ public class CustomerReturnListGoods {
 	public void setGoodsId(Integer goodsId) {
 		this.goodsId = goodsId;
 	}
-	
-	
+
+
 
 	public String getCodeOrName() {
 		return codeOrName;
@@ -174,6 +174,6 @@ public class CustomerReturnListGoods {
 				+ type + ", unit=" + unit + ", price=" + price + ", num=" + num + ", total=" + total + "]";
 	}
 
-	
-	
+
+
 }

@@ -10,7 +10,7 @@ import com.java1234.entity.Role;
 
 /**
  * 角色Repository接口
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public interface RoleRepository extends JpaRepository<Role, Integer>,JpaSpecificationExecutor<Role>{
@@ -22,7 +22,7 @@ public interface RoleRepository extends JpaRepository<Role, Integer>,JpaSpecific
 	 */
 	@Query(value="SELECT r.* FROM t_user u,t_role r,t_user_role ur WHERE ur.user_id=u.`id` AND ur.role_id=r.`id` AND u.`id`=?1",nativeQuery=true)
 	public List<Role> findByUserId(Integer id);
-	
 
-	
+
+
 }

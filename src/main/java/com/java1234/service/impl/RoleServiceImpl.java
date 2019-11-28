@@ -22,7 +22,7 @@ import com.java1234.util.StringUtil;
 
 /**
  * 角色Service实现类
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Service("roleService")
@@ -30,7 +30,7 @@ public class RoleServiceImpl implements RoleService{
 
 	@Resource
 	private RoleRepository roleRepository;
-	
+
 	@Override
 	public List<Role> findByUserId(Integer id) {
 		return roleRepository.findByUserId(id);
@@ -50,14 +50,14 @@ public class RoleServiceImpl implements RoleService{
 	public List<Role> list(Role role, Integer page, Integer pageSize, Direction direction, String... properties) {
 		Pageable pageable=new PageRequest(page-1, pageSize, direction,properties);
 		Page<Role> pageUser=roleRepository.findAll(new Specification<Role>() {
-			
+
 			@Override
 			public Predicate toPredicate(Root<Role> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				Predicate predicate=cb.conjunction();
 				if(role!=null){
 					if(StringUtil.isNotEmpty(role.getName())){
 						predicate.getExpressions().add(cb.like(root.get("name"), "%"+role.getName().trim()+"%"));
-					}	
+					}
 					predicate.getExpressions().add(cb.notEqual(root.get("id"), 1)); // 管理员角色除外
 				}
 				return predicate;
@@ -76,7 +76,7 @@ public class RoleServiceImpl implements RoleService{
 				if(role!=null){
 					if(StringUtil.isNotEmpty(role.getName())){
 						predicate.getExpressions().add(cb.like(root.get("name"), "%"+role.getName().trim()+"%"));
-					}	
+					}
 					predicate.getExpressions().add(cb.notEqual(root.get("id"), 1)); // 管理员角色除外
 				}
 				return predicate;

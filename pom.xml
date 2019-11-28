@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.java1234</groupId>
-	<artifactId>JXC</artifactId>
+	<artifactId>sales_system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
-	<name>JXC</name>
+	<name>sales_system</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -36,6 +36,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.13</version>
 		</dependency>
+
+        <!-- druid数据库连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.12</version>
+        </dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

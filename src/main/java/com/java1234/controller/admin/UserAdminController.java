@@ -29,7 +29,7 @@ import com.java1234.util.StringUtil;
 
 /**
  * 后台管理用户Controller
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Controller
@@ -38,16 +38,16 @@ public class UserAdminController {
 
 	@Resource
 	private UserService userService;
-	
+
 	@Resource
 	private RoleService roleService;
-	    
+
 	@Resource
 	private UserRoleService userRoleService;
-	
+
 	@Resource
 	private LogService logService;
-	
+
 	/**
 	 * 修改密码
 	 * @param id
@@ -68,7 +68,7 @@ public class UserAdminController {
 		logService.save(new Log(Log.UPDATE_ACTION,"修改密码")); // 写入日志
 		return map;
 	}
-	
+
 	/**
 	 * 安全退出
 	 * @return
@@ -81,7 +81,7 @@ public class UserAdminController {
 		SecurityUtils.getSubject().logout();
 		return "redirect:/login.html";
 	}
-	
+
 	/**
 	 * 分页查询用户信息
 	 * @param user
@@ -110,7 +110,7 @@ public class UserAdminController {
 		logService.save(new Log(Log.SEARCH_ACTION,"查询用户信息")); // 写入日志
 		return resultMap;
 	}
-	
+
 	/**
 	 * 保存用户角色设置
 	 * @param roleIds
@@ -134,11 +134,11 @@ public class UserAdminController {
 			}
 		}
 		resultMap.put("success", true);
-		logService.save(new Log(Log.UPDATE_ACTION,"保存用户角色设置")); 
+		logService.save(new Log(Log.UPDATE_ACTION,"保存用户角色设置"));
 		return resultMap;
 	}
-	
-	
+
+
 	/**
 	 * 添加或者修改用户信息
 	 * @param user
@@ -158,16 +158,16 @@ public class UserAdminController {
 			}
 		}
 		if(user.getId()!=null){ // 写入日志
-			logService.save(new Log(Log.UPDATE_ACTION,"更新用户信息"+user)); 
+			logService.save(new Log(Log.UPDATE_ACTION,"更新用户信息"+user));
 		}else{
-			logService.save(new Log(Log.ADD_ACTION,"添加用户信息"+user)); 
+			logService.save(new Log(Log.ADD_ACTION,"添加用户信息"+user));
 		}
-		userService.save(user);			
+		userService.save(user);
 		resultMap.put("success", true);
 		return resultMap;
 	}
-	
-	
+
+
 	/**
 	 * 删除用户信息
 	 * @param id
@@ -182,7 +182,7 @@ public class UserAdminController {
 		logService.save(new Log(Log.DELETE_ACTION,"删除用户信息"+userService.findById(id)));  // 写入日志
 		Map<String, Object> resultMap = new HashMap<>();
 		userRoleService.deleteByUserId(id); // 删除用户角色关联信息
-		userService.delete(id);				
+		userService.delete(id);
 		resultMap.put("success", true);
 		return resultMap;
 	}

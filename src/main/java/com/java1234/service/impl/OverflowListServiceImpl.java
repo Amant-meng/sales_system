@@ -25,7 +25,7 @@ import com.java1234.service.OverflowListService;
 
 /**
  * 报溢单Service实现类
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 @Service("overflowListService")
@@ -34,16 +34,16 @@ public class OverflowListServiceImpl implements OverflowListService{
 
 	@Resource
 	private OverflowListRepository overflowListRepository;
-	
+
 	@Resource
 	private OverflowListGoodsRepository overflowListGoodsRepository;
-	
+
 	@Resource
 	private GoodsRepository goodsRepository;
-	
+
 	@Resource
 	private GoodsTypeRepository goodsTypeRepository;
-	
+
 	@Override
 	public String getTodayMaxOverflowNumber() {
 		return overflowListRepository.getTodayMaxOverflowNumber();
@@ -56,7 +56,7 @@ public class OverflowListServiceImpl implements OverflowListService{
 			overflowListGoods.setType(goodsTypeRepository.findOne(overflowListGoods.getTypeId())); // 设置类别
 			overflowListGoods.setOverflowList(overflowList); // 设置采购单
 			overflowListGoodsRepository.save(overflowListGoods);
-			// 修改商品库存 
+			// 修改商品库存
 			Goods goods=goodsRepository.findOne(overflowListGoods.getGoodsId());
 			goods.setInventoryQuantity(goods.getInventoryQuantity()+overflowListGoods.getNum());
 			goods.setState(2);

@@ -2,7 +2,7 @@ package com.java1234.util;
 
 /**
  * 字符串工具类
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public class StringUtil {
@@ -19,7 +19,7 @@ public class StringUtil {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * 判断是否不是空
 	 * @param str
@@ -32,7 +32,7 @@ public class StringUtil {
 			return false;
 		}
 	}
-	
+
 
 	/**
 	 * 生成四位编号

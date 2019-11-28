@@ -12,7 +12,7 @@ import com.java1234.service.OverflowListGoodsService;
 
 /**
  * 报溢单商品Service实现类
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 @Service("overflowListGoodsService")
@@ -26,6 +26,6 @@ public class OverflowListGoodsServiceImpl implements OverflowListGoodsService{
 		return overflowListGoodsRepository.listByOverflowListId(overflowListId);
 	}
 
-	
+
 
 }

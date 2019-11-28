@@ -8,7 +8,7 @@ import com.java1234.entity.User;
 
 /**
  * 用户Repository接口
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public interface UserRepository extends JpaRepository<User, Integer>,JpaSpecificationExecutor<User>{

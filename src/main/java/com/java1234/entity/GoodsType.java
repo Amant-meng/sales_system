@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 /**
  * 商品类别实体
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Entity
@@ -18,15 +18,15 @@ public class GoodsType {
 	@Id
 	@GeneratedValue
 	private Integer id; // 编号
-	
+
 	@Column(length=50)
 	private String name; // 类别名称
-	
+
 	private Integer state; // 菜单节点类型 1 根节点 0 叶子节点
-	
+
 	@Column(length=100)
 	private String icon; // 图标
-	
+
 	private Integer pId; // 父菜单Id
 
 	public Integer getId() {
@@ -44,8 +44,8 @@ public class GoodsType {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+
+
 	public Integer getState() {
 		return state;
 	}
@@ -74,6 +74,6 @@ public class GoodsType {
 	public String toString() {
 		return "[id=" + id + ", name=" + name + ", state=" + state + ", icon=" + icon + ", pId=" + pId + "]";
 	}
-	
-	
+
+
 }

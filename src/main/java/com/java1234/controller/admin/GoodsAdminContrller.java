@@ -23,7 +23,7 @@ import com.java1234.util.StringUtil;
 
 /**
  * 后台管理商品Controller
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @RestController
@@ -32,16 +32,16 @@ public class GoodsAdminContrller {
 
 	@Resource
 	private GoodsService goodsService;
-	
+
 	@Resource
 	private SaleListGoodsService saleListGoodsService;
-	
+
 	@Resource
 	private CustomerReturnListGoodsService customerReturnListGoodsService;
-	
+
 	@Resource
 	private LogService logService;
-	
+
 	/**
 	 * 根据条件分页查询商品信息
 	 * @param goods
@@ -61,7 +61,7 @@ public class GoodsAdminContrller {
 		logService.save(new Log(Log.SEARCH_ACTION,"查询商品信息")); // 写入日志
 		return resultMap;
 	}
-	
+
 	/**
 	 * 根据条件分页查询商品库存信息
 	 * @param goods
@@ -84,7 +84,7 @@ public class GoodsAdminContrller {
 		logService.save(new Log(Log.SEARCH_ACTION,"查询商品库存信息")); // 写入日志
 		return resultMap;
 	}
-	
+
 	/**
 	 * 查询库存报警商品
 	 * @return
@@ -98,7 +98,7 @@ public class GoodsAdminContrller {
 		resultMap.put("rows", alarmGoodsList);
 		return resultMap;
 	}
-	
+
 	/**
 	 * 根据条件分页查询没有库存的商品信息
 	 * @param codeOrName
@@ -116,7 +116,7 @@ public class GoodsAdminContrller {
 		logService.save(new Log(Log.SEARCH_ACTION,"查询商品信息（无库存）")); // 写入日志
 		return resultMap;
 	}
-	
+
 	/**
 	 * 分页查询有库存的商品信息
 	 * @param codeOrName
@@ -134,7 +134,7 @@ public class GoodsAdminContrller {
 		logService.save(new Log(Log.SEARCH_ACTION,"查询商品信息（有库存）")); // 写入日志
 		return resultMap;
 	}
-	
+
 	/**
 	 * 删除库存 把商品的库存设置成0
 	 * @param id
@@ -152,11 +152,11 @@ public class GoodsAdminContrller {
 		}else{
 			goods.setInventoryQuantity(0);
 			goodsService.save(goods);
-			resultMap.put("success", true);	
+			resultMap.put("success", true);
 		}
-		return resultMap;			
+		return resultMap;
 	}
-	
+
 	/**
 	 * 生成商品编码
 	 * @return
@@ -178,7 +178,7 @@ public class GoodsAdminContrller {
 			return "0001";
 		}
 	}
-	
+
 	/**
 	 * 添加商品
 	 * @param goods
@@ -189,17 +189,17 @@ public class GoodsAdminContrller {
 	@RequiresPermissions(value = { "商品管理","进货入库"},logical=Logical.OR)
 	public Map<String,Object> save(Goods goods)throws Exception{
 		if(goods.getId()!=null){ // 写入日志
-			logService.save(new Log(Log.UPDATE_ACTION,"更新商品信息"+goods)); 
+			logService.save(new Log(Log.UPDATE_ACTION,"更新商品信息"+goods));
 		}else{
-			logService.save(new Log(Log.ADD_ACTION,"添加商品信息"+goods)); 
+			logService.save(new Log(Log.ADD_ACTION,"添加商品信息"+goods));
 			goods.setLastPurchasingPrice(goods.getPurchasingPrice()); // 设置上次进价为当前价格
 		}
 		Map<String, Object> resultMap = new HashMap<>();
 		goodsService.save(goods);
-		resultMap.put("success", true);	
+		resultMap.put("success", true);
 		return resultMap;
 	}
-	
+
 	/**
 	 * 添加商品到仓库 修改库存信息
 	 * @param id
@@ -217,10 +217,10 @@ public class GoodsAdminContrller {
 		goods.setPurchasingPrice(price);
 		goodsService.save(goods);
 		logService.save(new Log(Log.UPDATE_ACTION,"修改商品"+goods+"，价格="+price+",库存="+num)); // 写入日志
-		resultMap.put("success", true);	
+		resultMap.put("success", true);
 		return resultMap;
 	}
-	
+
 	/**
 	 * 删除商品信息
 	 * @param id
@@ -241,8 +241,8 @@ public class GoodsAdminContrller {
 			resultMap.put("errorInfo", "该商品已经发生单据，不能删除！");
 		}else{
 			logService.save(new Log(Log.DELETE_ACTION,"删除商品信息"+goodsService.findById(id)));  // 写入日志
-			goodsService.delete(id);							
-			resultMap.put("success", true);			
+			goodsService.delete(id);
+			resultMap.put("success", true);
 		}
 		return resultMap;
 	}

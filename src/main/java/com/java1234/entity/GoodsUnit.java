@@ -8,21 +8,21 @@ import javax.persistence.Table;
 
 /**
  * 商品单位实体
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Entity
 @Table(name="t_goodsunit")
 public class GoodsUnit {
-	
+
 	@Id
 	@GeneratedValue
 	private Integer id; // 编号
-	
+
 	@Column(length=10)
 	private String name; // 商品单位名称
 
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -43,6 +43,6 @@ public class GoodsUnit {
 	public String toString() {
 		return "[id=" + id + ", name=" + name + "]";
 	}
-	
-	
+
+
 }

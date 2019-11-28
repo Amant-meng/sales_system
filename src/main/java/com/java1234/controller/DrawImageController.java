@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 生成验证码
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Controller
@@ -24,7 +24,7 @@ public class DrawImageController {
 
 	public static final int WIDTH = 120;
 	public static final int HEIGHT = 30;
-	
+
 	 /**
      * 生成图片
      * @param request
@@ -59,10 +59,10 @@ public class DrawImageController {
 		// 将图片写给浏览器
 		ImageIO.write(bi, "jpg", response.getOutputStream());
     }
-    
+
     /**
 	 * 设置背景色
-	 * 
+	 *
 	 * @param g
 	 */
 	private void setBackGround(Graphics g) {
@@ -75,7 +75,7 @@ public class DrawImageController {
 
 	/**
 	 * 设置边框
-	 * 
+	 *
 	 * @param g
 	 */
 	private void setBorder(Graphics g) {
@@ -87,7 +87,7 @@ public class DrawImageController {
 
 	/**
 	 * 画随机线条
-	 * 
+	 *
 	 * @param g
 	 */
 	private void drawRandomLine(Graphics g) {
@@ -106,7 +106,7 @@ public class DrawImageController {
 
 	/**
 	 * 画随机汉字
-	 * 
+	 *
 	 * @param g
 	 * @return
 	 */
@@ -136,5 +136,5 @@ public class DrawImageController {
 		System.out.println(sb.toString());
 		return sb.toString();
 	}
-    
+
 }

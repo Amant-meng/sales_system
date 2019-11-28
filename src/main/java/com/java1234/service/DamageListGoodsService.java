@@ -6,7 +6,7 @@ import com.java1234.entity.DamageListGoods;
 
 /**
  * 报损单商品Service接口
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 public interface DamageListGoodsService {

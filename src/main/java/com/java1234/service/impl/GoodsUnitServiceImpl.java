@@ -12,7 +12,7 @@ import com.java1234.service.GoodsUnitService;
 
 /**
  * 商品单位Service实现类
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Service("goodsUnitService")
@@ -20,7 +20,7 @@ public class GoodsUnitServiceImpl implements GoodsUnitService{
 
 	@Resource
 	private GoodsUnitRepository goodsUnitRepository;
-	
+
 	@Override
 	public List<GoodsUnit> listAll() {
 		return goodsUnitRepository.findAll();

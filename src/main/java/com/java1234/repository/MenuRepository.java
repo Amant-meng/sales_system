@@ -9,7 +9,7 @@ import com.java1234.entity.Menu;
 
 /**
  * 权限菜单Repository接口
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public interface MenuRepository extends JpaRepository<Menu, Integer>{
@@ -21,7 +21,7 @@ public interface MenuRepository extends JpaRepository<Menu, Integer>{
 	 */
 	@Query(value="SELECT m.* FROM t_role r,t_menu m,t_role_menu rm WHERE rm.`role_id`=r.`id` AND rm.`menu_id`=m.`id` AND r.`id`=?1",nativeQuery=true)
 	public List<Menu> findByRoleId(int roleId);
-	
+
 	/**
 	 * 根据父节点以及用户角色id集合查询子节点
 	 * @param parentId
@@ -30,7 +30,7 @@ public interface MenuRepository extends JpaRepository<Menu, Integer>{
 	 */
 	@Query(value="select * from t_menu where p_id=?1 and id in (SELECT menu_id FROM t_role_menu WHERE role_id=?2)",nativeQuery=true)
 	public List<Menu> findByParentIdAndRoleId(int parentId,int roleId);
-	
+
 	/**
 	 * 根据父节点查找所有子节点
 	 * @param parentId

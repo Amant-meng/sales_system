@@ -11,7 +11,7 @@ import javax.persistence.Transient;
 
 /**
  * 报损单商品实体
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Entity
@@ -21,40 +21,40 @@ public class DamageListGoods {
 	@Id
 	@GeneratedValue
 	private Integer id; // 编号
-	
+
 	@ManyToOne
 	@JoinColumn(name="damageListId")
 	private DamageList damageList; // 报损单
 
 	@Column(length=50)
 	private String code; // 商品编码
-	
-	
+
+
 	@Column(length=50)
 	private String name; // 商品名称
-	
+
 	@Column(length=50)
 	private String model; // 商品型号
-	
+
 	@ManyToOne
 	@JoinColumn(name="typeId")
 	private GoodsType type; // 商品类别
-	
+
 	@Transient
-	private Integer typeId; // 类别id 
-	
+	private Integer typeId; // 类别id
+
 	private Integer goodsId; // 商品id
-	
+
 	@Column(length=10)
 	private String unit; // 商品单位
-	
+
 	private float price; // 单价
-	
+
 	private int num; // 数量
-	
+
 	private float total; // 总价
 
-	
+
 
 	public Integer getId() {
 		return id;
@@ -71,7 +71,7 @@ public class DamageListGoods {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
+
 
 	public String getName() {
 		return name;
@@ -96,8 +96,8 @@ public class DamageListGoods {
 	public void setType(GoodsType type) {
 		this.type = type;
 	}
-	
-	
+
+
 	public Integer getTypeId() {
 		return typeId;
 	}
@@ -137,8 +137,8 @@ public class DamageListGoods {
 	public void setTotal(float total) {
 		this.total = total;
 	}
-	
-	
+
+
 	public DamageList getDamageList() {
 		return damageList;
 	}
@@ -146,8 +146,8 @@ public class DamageListGoods {
 	public void setDamageList(DamageList damageList) {
 		this.damageList = damageList;
 	}
-	
-	
+
+
 
 	public Integer getGoodsId() {
 		return goodsId;
@@ -163,6 +163,6 @@ public class DamageListGoods {
 				+ type + ", unit=" + unit + ", price=" + price + ", num=" + num + ", total=" + total + "]";
 	}
 
-	
-	
+
+
 }

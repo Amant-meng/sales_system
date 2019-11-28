@@ -22,7 +22,7 @@ import com.java1234.util.StringUtil;
 
 /**
  * 商品Service实现类
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 @Service("goodsService")
@@ -30,7 +30,7 @@ public class GoodsServiceImpl implements GoodsService {
 
 	@Resource
 	private GoodsRepository goodsRepository;
-	
+
 	@Override
 	public Goods findById(Integer id) {
 		return goodsRepository.findOne(id);
@@ -45,14 +45,14 @@ public class GoodsServiceImpl implements GoodsService {
 	public List<Goods> list(Goods goods, Integer page, Integer pageSize, Direction direction, String... properties) {
 		Pageable pageable=new PageRequest(page-1, pageSize, direction,properties);
 		Page<Goods> pageUser=goodsRepository.findAll(new Specification<Goods>() {
-			
+
 			@Override
 			public Predicate toPredicate(Root<Goods> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				Predicate predicate=cb.conjunction();
 				if(goods!=null){
 					if(StringUtil.isNotEmpty(goods.getName())){
 						predicate.getExpressions().add(cb.like(root.get("name"), "%"+goods.getName().trim()+"%"));
-					}	
+					}
 					if(goods.getType()!=null && goods.getType().getId()!=null && goods.getType().getId()!=1){
 						predicate.getExpressions().add(cb.equal(root.get("type").get("id"), goods.getType().getId()));
 					}
@@ -76,7 +76,7 @@ public class GoodsServiceImpl implements GoodsService {
 				if(goods!=null){
 					if(StringUtil.isNotEmpty(goods.getName())){
 						predicate.getExpressions().add(cb.like(root.get("name"), "%"+goods.getName().trim()+"%"));
-					}	
+					}
 					if(goods.getType()!=null && goods.getType().getId()!=null && goods.getType().getId()!=1){
 						predicate.getExpressions().add(cb.equal(root.get("type").get("id"), goods.getType().getId()));
 					}
@@ -105,7 +105,7 @@ public class GoodsServiceImpl implements GoodsService {
 			Direction direction, String... properties) {
 		Pageable pageable=new PageRequest(page-1, pageSize, direction,properties);
 		Page<Goods> pageUser=goodsRepository.findAll(new Specification<Goods>() {
-			
+
 			@Override
 			public Predicate toPredicate(Root<Goods> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				Predicate predicate=cb.conjunction();
@@ -141,7 +141,7 @@ public class GoodsServiceImpl implements GoodsService {
 			String... properties) {
 		Pageable pageable=new PageRequest(page-1, pageSize, direction,properties);
 		Page<Goods> pageUser=goodsRepository.findAll(new Specification<Goods>() {
-			
+
 			@Override
 			public Predicate toPredicate(Root<Goods> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				Predicate predicate=cb.conjunction();

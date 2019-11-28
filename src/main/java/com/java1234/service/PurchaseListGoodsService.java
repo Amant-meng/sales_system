@@ -6,7 +6,7 @@ import com.java1234.entity.PurchaseListGoods;
 
 /**
  * 进货单商品Service接口
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 public interface PurchaseListGoodsService {
@@ -17,7 +17,7 @@ public interface PurchaseListGoodsService {
 	 * @return
 	 */
 	public List<PurchaseListGoods> listByPurchaseListId(Integer purchaseListId);
-	
+
 	/**
 	 * 根据条件查询进货单商品
 	 * @param PurchaseListGoods

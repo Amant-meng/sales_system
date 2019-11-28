@@ -4,7 +4,7 @@ import com.java1234.entity.RoleMenu;
 
 /**
  * 角色权限关联Service接口
- * @author java1234 小锋 老师
+ * @author Meng.Yang
  *
  */
 public interface RoleMenuService {
@@ -14,7 +14,7 @@ public interface RoleMenuService {
 	 * @param id
 	 */
 	public void deleteByRoleId(Integer roleId);
-	
+
 	/**
 	 * 保存
 	 * @param roleMenu

@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * 日期工具类
- * @author java1234_小锋老师
+ * @author Meng.Yang
  *
  */
 public class DateUtil {
@@ -27,7 +27,7 @@ public class DateUtil {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * 把日期字符串生成指定格式的日期对象
 	 * @param str
@@ -42,7 +42,7 @@ public class DateUtil {
 		SimpleDateFormat sdf=new SimpleDateFormat(format);
 		return sdf.parse(str);
 	}
-	
+
 	/**
 	 * 生成当前年月日字符串
 	 * @return
@@ -53,7 +53,7 @@ public class DateUtil {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd");
 		return sdf.format(date);
 	}
-	
+
 	/**
 	 * 获取指定范围内的日期集合
 	 * @param before
@@ -74,7 +74,7 @@ public class DateUtil {
 		}
 		return datas;
 	}
-	
+
 	/**
 	 * 获取指定范围内的月份集合
 	 * @param before
@@ -95,8 +95,8 @@ public class DateUtil {
 		}
 		return months;
 	}
-	
-	
+
+
 	public static void main(String[] args) throws Exception{
 		/*List<String> datas=getRangeDatas("2017-10-28","2017-11-02");
 		for(String data:datas){
